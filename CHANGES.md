@@ -1,3 +1,9 @@
+# Version 2.0.6
+
+Feat:
+
+- Add support for Python 3.13
+
 # Version 2.0.5
 
 Feat:

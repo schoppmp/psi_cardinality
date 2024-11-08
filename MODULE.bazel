@@ -1,25 +1,25 @@
 module(
     name = "org_openmined_psi",
-    version = "2.0.5",
+    version = "2.0.6",
 )
 
 http_archive = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 # Core Bazel dependencies from Bazel Central Repository
 bazel_dep(name = "abseil-cpp", version = "20240722.0")
-bazel_dep(name = "apple_support", version = "1.17.0")
+bazel_dep(name = "apple_support", version = "1.17.1")
 bazel_dep(name = "bazel_skylib", version = "1.7.1")
 bazel_dep(name = "boringssl", version = "0.20240913.0")
-bazel_dep(name = "gazelle", version = "0.39.0")
+bazel_dep(name = "gazelle", version = "0.39.1")
 bazel_dep(name = "glog", version = "0.7.1")
 bazel_dep(name = "google_benchmark", version = "1.8.5")
 bazel_dep(name = "googletest", version = "1.15.2")
 bazel_dep(name = "grpc", version = "1.66.0.bcr.2", repo_name = "com_github_grpc_grpc")  # aliased for PCJ
 bazel_dep(name = "platforms", version = "0.0.10")
-bazel_dep(name = "protobuf", version = "28.2")
-bazel_dep(name = "pybind11_bazel", version = "2.12.0")
-bazel_dep(name = "rules_apple", version = "3.9.2")
-bazel_dep(name = "rules_cc", version = "0.0.10")
+bazel_dep(name = "protobuf", version = "28.3")
+bazel_dep(name = "pybind11_bazel", version = "2.13.6")
+bazel_dep(name = "rules_apple", version = "3.11.2")
+bazel_dep(name = "rules_cc", version = "0.0.13")
 bazel_dep(name = "rules_go", version = "0.50.1")
 bazel_dep(name = "rules_java", version = "7.12.0")
 bazel_dep(name = "rules_pkg", version = "1.0.1")
@@ -27,8 +27,8 @@ bazel_dep(name = "rules_proto_grpc", version = "5.0.0")
 bazel_dep(name = "rules_proto_grpc_cpp", version = "5.0.0")
 bazel_dep(name = "rules_proto_grpc_go", version = "5.0.0")
 bazel_dep(name = "rules_proto_grpc_python", version = "5.0.0")
-bazel_dep(name = "rules_python", version = "0.36.0")
-bazel_dep(name = "rules_rust", version = "0.51.0")
+bazel_dep(name = "rules_python", version = "0.37.2")
+bazel_dep(name = "rules_rust", version = "0.53.0")
 
 ## PCJ
 http_archive(
@@ -55,6 +55,9 @@ python.toolchain(
 python.toolchain(
     python_version = "3.12",
 )
+python.toolchain(
+    python_version = "3.13",
+)
 
 use_repo(
     python,
@@ -64,6 +67,7 @@ use_repo(
     "python_3_10",
     "python_3_11",
     "python_3_12",
+    "python_3_13",
     # Handy helper for all
     "python_versions",
 )
@@ -94,6 +98,11 @@ pip.parse(
     hub_name = "psi_deps",
     python_version = "3.12",
     requirements_lock = "//private_set_intersection/python/requirements:requirements_lock_3_12.txt",
+)
+pip.parse(
+    hub_name = "psi_deps",
+    python_version = "3.13",
+    requirements_lock = "//private_set_intersection/python/requirements:requirements_lock_3_13.txt",
 )
 
 python_abi = use_extension("//private_set_intersection/python:extensions.bzl", "python_abi")

@@ -5,6 +5,7 @@ load("@python_platform//:platform.bzl", "python_platform")
 load("@python_versions//3.10:defs.bzl", py_binary_3_10 = "py_binary", py_test_3_10 = "py_test")
 load("@python_versions//3.11:defs.bzl", py_binary_3_11 = "py_binary", py_test_3_11 = "py_test")
 load("@python_versions//3.12:defs.bzl", py_binary_3_12 = "py_binary", py_test_3_12 = "py_test")
+load("@python_versions//3.13:defs.bzl", py_binary_3_13 = "py_binary", py_test_3_13 = "py_test")
 load("@python_versions//3.8:defs.bzl", py_binary_3_8 = "py_binary", py_test_3_8 = "py_test")
 load("@python_versions//3.9:defs.bzl", py_binary_3_9 = "py_binary", py_test_3_9 = "py_test")
 load("@rules_python//python:packaging.bzl", "py_package", "py_wheel")
@@ -100,6 +101,18 @@ py_test_3_12(
     ],
 )
 
+py_test_3_13(
+    name = "test_3_13",
+    srcs = ["tests.py"],
+    legacy_create_init = False,
+    main = "tests.py",
+    srcs_version = "PY3",
+    deps = [
+        ":openmined_psi",
+        requirement("pytest"),
+    ],
+)
+
 py_binary_3_8(
     name = "benchmark_3_8",
     srcs = ["benchmarks.py"],
@@ -154,6 +167,19 @@ py_binary_3_11(
 
 py_binary_3_12(
     name = "benchmark_3_12",
+    srcs = ["benchmarks.py"],
+    legacy_create_init = False,
+    main = "benchmarks.py",
+    srcs_version = "PY3",
+    deps = [
+        ":openmined_psi",
+        requirement("pytest-benchmark"),
+        requirement("pytest"),
+    ],
+)
+
+py_binary_3_13(
+    name = "benchmark_3_13",
     srcs = ["benchmarks.py"],
     legacy_create_init = False,
     main = "benchmarks.py",

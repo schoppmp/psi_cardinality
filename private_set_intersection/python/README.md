@@ -19,6 +19,7 @@ bazel test --test_output=all //private_set_intersection/python:test_3_9
 bazel test --test_output=all //private_set_intersection/python:test_3_10
 bazel test --test_output=all //private_set_intersection/python:test_3_11
 bazel test --test_output=all //private_set_intersection/python:test_3_12
+bazel test --test_output=all //private_set_intersection/python:test_3_13
 ...
 ```
 
@@ -30,6 +31,7 @@ bazel run -c opt --test_output=all //private_set_intersection/python:benchmark_3
 bazel run -c opt --test_output=all //private_set_intersection/python:benchmark_3_10
 bazel run -c opt --test_output=all //private_set_intersection/python:benchmark_3_11
 bazel run -c opt --test_output=all //private_set_intersection/python:benchmark_3_12
+bazel run -c opt --test_output=all //private_set_intersection/python:benchmark_3_13
 ...
 ```
 
@@ -43,6 +45,7 @@ bazel run //private_set_intersection/python/requirements:requirements_3_9.update
 bazel run //private_set_intersection/python/requirements:requirements_3_10.update
 bazel run //private_set_intersection/python/requirements:requirements_3_11.update
 bazel run //private_set_intersection/python/requirements:requirements_3_12.update
+bazel run //private_set_intersection/python/requirements:requirements_3_13.update
 ...
 ```
 

@@ -57,6 +57,7 @@ class ABIVersion(Enum):
 #
 # NOTE: Order matters
 python_versions = {
+    version.parse("3.13.0"): ABIVersion.MANY_LINUX_X_Y,
     version.parse("3.12.0"): ABIVersion.MANY_LINUX_X_Y,
     version.parse("3.11.0"): ABIVersion.MANY_LINUX_X_Y,
     version.parse("3.10.0"): ABIVersion.MANY_LINUX_X_Y,
